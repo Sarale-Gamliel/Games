@@ -1,0 +1,32 @@
+.hangman-figure {
+  width: 200px;
+  height: 220px;
+}
+
+.gallows {
+  stroke: #a78bfa;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.part {
+  stroke: var(--color-hangman);
+  stroke-width: 8;
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0;
+  transform-origin: 130px 60px;
+  transform: scale(0.6);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+circle.part {
+  fill: var(--color-hangman-soft);
+}
+
+.part.visible {
+  opacity: 1;
+  transform: scale(1);
+}

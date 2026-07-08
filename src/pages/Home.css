@@ -1,0 +1,87 @@
+.home-hero {
+  text-align: center;
+  color: #fff;
+  margin: 24px 0 48px;
+  animation: pop-in 0.5s ease both;
+}
+
+.home-hero h1 {
+  font-size: clamp(32px, 6vw, 52px);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.home-hero p {
+  margin-top: 12px;
+  font-size: 18px;
+  opacity: 0.92;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  width: 100%;
+  max-width: 760px;
+}
+
+.game-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 32px 24px;
+  text-decoration: none;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  animation: pop-in 0.5s ease both;
+}
+
+.game-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(36, 27, 58, 0.24);
+}
+
+.game-card .icon {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.game-card h2 {
+  font-size: 22px;
+}
+
+.game-card p {
+  color: var(--color-text-muted);
+  text-align: center;
+  font-size: 15px;
+}
+
+.game-card.xo .icon {
+  color: var(--color-xo);
+}
+
+.game-card.hangman .icon {
+  color: var(--color-hangman);
+}
+
+.play-badge {
+  margin-top: 8px;
+  padding: 8px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+
+.game-card.xo .play-badge {
+  background: var(--color-xo);
+}
+
+.game-card.hangman .play-badge {
+  background: var(--color-hangman);
+}

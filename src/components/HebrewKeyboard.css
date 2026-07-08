@@ -1,0 +1,36 @@
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.key {
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-hangman-soft);
+  color: var(--color-hangman);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 12px 0;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+.key:not(:disabled):hover {
+  transform: translateY(-2px);
+  background: #d5f7e8;
+}
+
+.key.correct {
+  background: var(--color-success);
+  color: #fff;
+}
+
+.key.incorrect {
+  background: #fde2e6;
+  color: var(--color-danger);
+  text-decoration: line-through;
+}

@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getWinner, isDraw } from '../utils/ticTacToeLogic.js'
+import { getComputerMove } from '../utils/ticTacToeAI.js'
 import './TicTacToe.css'
 
 const EMPTY_BOARD = Array(9).fill(null)
+const COMPUTER_DELAY_MS = 500
 
 function TicTacToe() {
+  const [mode, setMode] = useState('friend') // 'friend' | 'computer'
   const [board, setBoard] = useState(EMPTY_BOARD)
   const [isXTurn, setIsXTurn] = useState(true)
   const [scores, setScores] = useState({ X: 0, O: 0, draw: 0 })
@@ -12,12 +15,11 @@ function TicTacToe() {
   const result = getWinner(board)
   const draw = !result && isDraw(board)
   const gameOver = Boolean(result) || draw
+  const computerTurn = mode === 'computer' && !isXTurn && !gameOver
 
-  function handleCellClick(index) {
-    if (board[index] || gameOver) return
-
+  function playMove(index, player) {
     const nextBoard = [...board]
-    nextBoard[index] = isXTurn ? 'X' : 'O'
+    nextBoard[index] = player
     setBoard(nextBoard)
 
     const nextResult = getWinner(nextBoard)
@@ -30,19 +32,56 @@ function TicTacToe() {
     setIsXTurn((prev) => !prev)
   }
 
+  function handleCellClick(index) {
+    if (board[index] || gameOver || computerTurn) return
+    playMove(index, isXTurn ? 'X' : 'O')
+  }
+
+  useEffect(() => {
+    if (!computerTurn) return
+    const timer = setTimeout(() => {
+      const move = getComputerMove(board)
+      if (move !== null) playMove(move, 'O')
+    }, COMPUTER_DELAY_MS)
+    return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [computerTurn, board])
+
   function handleReset() {
     setBoard(EMPTY_BOARD)
     setIsXTurn(true)
   }
 
+  function handleModeChange(nextMode) {
+    setMode(nextMode)
+    handleReset()
+  }
+
   let statusText = `תור השחקן ${isXTurn ? 'X' : 'O'}`
-  if (result) statusText = `🎉 השחקן ${result.player} ניצח!`
+  if (computerTurn) statusText = 'המחשב חושב... 🤔'
+  else if (result) statusText = `🎉 השחקן ${result.player} ניצח!`
   else if (draw) statusText = '🤝 תיקו!'
 
   return (
     <main className="page xo-page">
       <div className="xo-header">
         <h1>איקס עיגול</h1>
+
+        <div className="xo-mode-toggle">
+          <button
+            className={mode === 'friend' ? 'active' : ''}
+            onClick={() => handleModeChange('friend')}
+          >
+            🧑‍🤝‍🧑 שני שחקנים
+          </button>
+          <button
+            className={mode === 'computer' ? 'active' : ''}
+            onClick={() => handleModeChange('computer')}
+          >
+            🤖 נגד המחשב
+          </button>
+        </div>
+
         <p className="xo-status">{statusText}</p>
       </div>
 
@@ -60,7 +99,7 @@ function TicTacToe() {
               result?.line.includes(index) ? 'winning' : ''
             }`}
             onClick={() => handleCellClick(index)}
-            disabled={Boolean(cell) || gameOver}
+            disabled={Boolean(cell) || gameOver || computerTurn}
             aria-label={`משבצת ${index + 1}`}
           >
             {cell}

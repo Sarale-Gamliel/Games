@@ -86,14 +86,14 @@ button:disabled {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 16px 64px;
+  padding: 16px 16px 24px;
 }
 
 .top-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 24px;
+  padding: 14px 20px;
   color: #fff;
 }
 

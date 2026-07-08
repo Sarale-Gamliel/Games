@@ -6,17 +6,17 @@
 
 .hangman-header {
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .hangman-header h1 {
-  font-size: 32px;
+  font-size: 28px;
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
 .hangman-category {
-  margin-top: 8px;
-  font-size: 15px;
+  margin-top: 4px;
+  font-size: 14px;
   opacity: 0.85;
 }
 
@@ -24,29 +24,29 @@
   background: var(--color-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  padding: 24px 20px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   animation: pop-in 0.4s ease both;
 }
 
 .hangman-word {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .hangman-letter-slot {
-  width: 34px;
-  height: 44px;
+  width: 28px;
+  height: 36px;
   border-bottom: 4px solid var(--color-hangman);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 800;
   color: var(--color-text);
 }
@@ -58,8 +58,8 @@
 
 .hangman-status {
   font-weight: 700;
-  font-size: 18px;
-  min-height: 26px;
+  font-size: 16px;
+  min-height: 22px;
   text-align: center;
 }
 
@@ -74,7 +74,7 @@
 .hangman-actions {
   display: flex;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: 12px;
 }
 
 .hangman-reset {
@@ -82,7 +82,7 @@
   color: var(--color-hangman);
   border: none;
   border-radius: 999px;
-  padding: 12px 28px;
+  padding: 10px 26px;
   font-weight: 700;
   font-size: 15px;
   box-shadow: var(--shadow-pop);

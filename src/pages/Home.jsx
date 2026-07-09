@@ -1,15 +1,34 @@
 import { Link } from 'react-router-dom'
 import './Home.css'
 
+const FEATURES = [
+  { icon: '🎯', label: 'אתגרו את עצמכם' },
+  { icon: '🤝', label: 'שחקו עם חברים' },
+  { icon: '🏆', label: 'שברו שיאים' },
+]
+
 function Home() {
   return (
     <main className="page">
-      <div className="home-hero">
-        <h1>איזה משחק בא לך לשחק?</h1>
-        <p>שני משחקים קלאסיים, בגרסה חדשה ומשודרגת</p>
-      </div>
+      <section className="hero">
+        <div className="hero-icon">🎮</div>
+        <h1>משחקים שיגרמו לכם להתמכר</h1>
 
-      <div className="game-grid">
+        <ul className="hero-features">
+          {FEATURES.map((feature) => (
+            <li key={feature.label}>
+              <span className="hero-feature-icon">{feature.icon}</span>
+              {feature.label}
+            </li>
+          ))}
+        </ul>
+
+        <a href="#games" className="hero-cta">
+          התחל לשחק
+        </a>
+      </section>
+
+      <div className="game-grid" id="games">
         <Link to="/tic-tac-toe" className="game-card xo">
           <span className="icon">❌⭕</span>
           <h2>איקס עיגול</h2>

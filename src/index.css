@@ -18,6 +18,12 @@
   --color-connect4-soft: #e4f5fd;
   --color-2048: #d946ef;
   --color-2048-soft: #fbeafd;
+  --color-rps: #ef4444;
+  --color-rps-soft: #fee9e9;
+  --color-simon: #22c55e;
+  --color-simon-soft: #e8fbef;
+  --color-snake: #65a30d;
+  --color-snake-soft: #eff9de;
 
   --color-danger: #e11d48;
   --color-success: #16a34a;

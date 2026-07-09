@@ -39,4 +39,28 @@ export const GAMES = [
     description: 'החליקו אריחים ושלבו מספרים זהים עד שתגיעו ל-2048',
     color: 'var(--color-2048)',
   },
+  {
+    id: 'rock-paper-scissors',
+    path: '/rock-paper-scissors',
+    icon: '✊✌️',
+    title: 'אבן נייר ומספריים',
+    description: 'בחרו יד והתמודדו מול המחשב בסבב אחר סבב',
+    color: 'var(--color-rps)',
+  },
+  {
+    id: 'simon',
+    path: '/simon',
+    icon: '🟢🔴',
+    title: 'סיימון',
+    description: 'זכרו את רצף הצבעים המתארך וחזרו עליו נכון',
+    color: 'var(--color-simon)',
+  },
+  {
+    id: 'snake',
+    path: '/snake',
+    icon: '🐍',
+    title: 'נחש',
+    description: 'נווטו את הנחש, אספו אוכל והיזהרו מהקירות ומהזנב שלכם',
+    color: 'var(--color-snake)',
+  },
 ]

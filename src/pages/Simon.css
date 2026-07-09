@@ -1,0 +1,105 @@
+.simon-page {
+  color: #fff;
+  width: 100%;
+  max-width: 420px;
+}
+
+.simon-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.simon-header h1 {
+  font-size: clamp(24px, 4.5vh, 32px);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.simon-status {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  min-height: 22px;
+}
+
+.simon-scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.simon-score {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.simon-board {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 14px;
+  animation: pop-in 0.4s ease both;
+}
+
+.simon-grid {
+  direction: ltr;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  width: min(80vw, 320px);
+  aspect-ratio: 1;
+}
+
+.simon-quad {
+  border: none;
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease;
+}
+
+.simon-quad:not(:disabled):hover {
+  transform: scale(1.02);
+}
+
+.simon-grid .simon-quad:nth-child(1) {
+  border-radius: var(--radius-lg) var(--radius-sm) var(--radius-sm) var(--radius-sm);
+}
+.simon-grid .simon-quad:nth-child(2) {
+  border-radius: var(--radius-sm) var(--radius-lg) var(--radius-sm) var(--radius-sm);
+}
+.simon-grid .simon-quad:nth-child(3) {
+  border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) var(--radius-lg);
+}
+.simon-grid .simon-quad:nth-child(4) {
+  border-radius: var(--radius-sm) var(--radius-sm) var(--radius-lg) var(--radius-sm);
+}
+
+.simon-overlay {
+  position: absolute;
+  inset: 14px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.simon-overlay button {
+  background: var(--color-simon);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 15px;
+}

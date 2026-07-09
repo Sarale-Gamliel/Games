@@ -33,6 +33,7 @@
 }
 
 .g2048-grid {
+  direction: ltr;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
@@ -145,6 +146,44 @@
   padding: 10px 24px;
   font-weight: 700;
   font-size: 14px;
+}
+
+.g2048-dpad {
+  direction: ltr;
+  display: grid;
+  grid-template-columns: repeat(3, 48px);
+  grid-template-rows: repeat(2, 48px);
+  grid-template-areas:
+    '.    up    .'
+    'left down right';
+  gap: 6px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.g2048-dpad button {
+  border: none;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 18px;
+  transition: transform 0.15s ease;
+}
+
+.g2048-dpad button:not(:disabled):hover {
+  transform: scale(1.08);
+}
+
+.g2048-dpad-up {
+  grid-area: up;
+}
+.g2048-dpad-left {
+  grid-area: left;
+}
+.g2048-dpad-down {
+  grid-area: down;
+}
+.g2048-dpad-right {
+  grid-area: right;
 }
 
 .g2048-actions {

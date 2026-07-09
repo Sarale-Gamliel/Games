@@ -118,6 +118,41 @@ function Game2048() {
         </div>
       </div>
 
+      <div className="g2048-dpad">
+        <button
+          className="g2048-dpad-up"
+          onClick={() => applyMove('up')}
+          disabled={isGameOver}
+          aria-label="למעלה"
+        >
+          ⬆️
+        </button>
+        <button
+          className="g2048-dpad-left"
+          onClick={() => applyMove('left')}
+          disabled={isGameOver}
+          aria-label="שמאלה"
+        >
+          ⬅️
+        </button>
+        <button
+          className="g2048-dpad-right"
+          onClick={() => applyMove('right')}
+          disabled={isGameOver}
+          aria-label="ימינה"
+        >
+          ➡️
+        </button>
+        <button
+          className="g2048-dpad-down"
+          onClick={() => applyMove('down')}
+          disabled={isGameOver}
+          aria-label="למטה"
+        >
+          ⬇️
+        </button>
+      </div>
+
       <div className="g2048-actions">
         <button className="g2048-reset" onClick={handleReset}>
           משחק חדש

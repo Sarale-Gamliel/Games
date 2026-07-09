@@ -1,6 +1,6 @@
 .hangman-figure {
-  width: clamp(110px, 18vh, 150px);
-  height: clamp(121px, 20vh, 165px);
+  width: clamp(130px, 22vh, 180px);
+  height: clamp(143px, 24vh, 198px);
 }
 
 .gallows {

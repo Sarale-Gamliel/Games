@@ -1,9 +1,9 @@
 .keyboard {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 5px;
+  gap: 7px;
   width: 100%;
-  max-width: 380px;
+  max-width: 420px;
 }
 
 .key {
@@ -11,9 +11,9 @@
   border-radius: var(--radius-sm);
   background: var(--color-hangman-soft);
   color: var(--color-hangman);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 700;
-  padding: 6px 0;
+  padding: 9px 0;
   transition:
     transform 0.15s ease,
     background 0.15s ease;

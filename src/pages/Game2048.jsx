@@ -16,12 +16,14 @@ const KEY_TO_DIRECTION = {
   ArrowRight: 'right',
 }
 
+const DRAG_THRESHOLD_PX = 24
+
 function Game2048() {
   const [grid, setGrid] = useState(createInitialGrid)
   const [score, setScore] = useState(0)
   const [moveCount, setMoveCount] = useState(0)
   const [wonDismissed, setWonDismissed] = useState(false)
-  const [touchStart, setTouchStart] = useState(null)
+  const [dragStart, setDragStart] = useState(null)
 
   const isWinner = hasReached2048(grid) && !wonDismissed
   const isGameOver = !hasAvailableMoves(grid)
@@ -49,23 +51,22 @@ function Game2048() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [grid, isGameOver])
 
-  function handleTouchStart(e) {
-    const touch = e.touches[0]
-    setTouchStart({ x: touch.clientX, y: touch.clientY })
+  function handlePointerDown(e) {
+    setDragStart({ x: e.clientX, y: e.clientY })
   }
 
-  function handleTouchEnd(e) {
-    if (!touchStart) return
-    const touch = e.changedTouches[0]
-    const dx = touch.clientX - touchStart.x
-    const dy = touch.clientY - touchStart.y
+  function handlePointerUp(e) {
+    if (!dragStart) return
+    const dx = e.clientX - dragStart.x
+    const dy = e.clientY - dragStart.y
     const absDx = Math.abs(dx)
     const absDy = Math.abs(dy)
 
-    if (Math.max(absDx, absDy) < 24) return
-    if (absDx > absDy) applyMove(dx > 0 ? 'right' : 'left')
-    else applyMove(dy > 0 ? 'down' : 'up')
-    setTouchStart(null)
+    if (Math.max(absDx, absDy) >= DRAG_THRESHOLD_PX) {
+      if (absDx > absDy) applyMove(dx > 0 ? 'right' : 'left')
+      else applyMove(dy > 0 ? 'down' : 'up')
+    }
+    setDragStart(null)
   }
 
   function handleReset() {
@@ -80,12 +81,14 @@ function Game2048() {
       <div className="g2048-header">
         <h1>2048</h1>
         <p className="g2048-score">ניקוד: {score}</p>
+        <p className="g2048-hint">גררו עם העכבר (או באצבע) לכל כיוון כדי להזיז את האריחים</p>
       </div>
 
       <div
         className="g2048-board"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
+        onPointerDown={handlePointerDown}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={() => setDragStart(null)}
       >
         <Confetti active={isWinner} />
 
@@ -116,41 +119,6 @@ function Game2048() {
             )),
           )}
         </div>
-      </div>
-
-      <div className="g2048-dpad">
-        <button
-          className="g2048-dpad-up"
-          onClick={() => applyMove('up')}
-          disabled={isGameOver}
-          aria-label="למעלה"
-        >
-          ⬆️
-        </button>
-        <button
-          className="g2048-dpad-left"
-          onClick={() => applyMove('left')}
-          disabled={isGameOver}
-          aria-label="שמאלה"
-        >
-          ⬅️
-        </button>
-        <button
-          className="g2048-dpad-right"
-          onClick={() => applyMove('right')}
-          disabled={isGameOver}
-          aria-label="ימינה"
-        >
-          ➡️
-        </button>
-        <button
-          className="g2048-dpad-down"
-          onClick={() => applyMove('down')}
-          disabled={isGameOver}
-          aria-label="למטה"
-        >
-          ⬇️
-        </button>
       </div>
 
       <div className="g2048-actions">

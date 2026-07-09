@@ -1,0 +1,13 @@
+.site-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+}
+
+.site-footer-dot {
+  opacity: 0.6;
+}

@@ -1,0 +1,61 @@
+.bg-blobs {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+  background: #fff;
+  animation: blob-drift 18s ease-in-out infinite;
+}
+
+.bg-blob-1 {
+  width: 320px;
+  height: 320px;
+  top: -80px;
+  right: -60px;
+  animation-duration: 20s;
+}
+
+.bg-blob-2 {
+  width: 260px;
+  height: 260px;
+  bottom: 5%;
+  left: -60px;
+  animation-duration: 24s;
+  animation-delay: -6s;
+}
+
+.bg-blob-3 {
+  width: 200px;
+  height: 200px;
+  bottom: 40%;
+  right: 15%;
+  animation-duration: 16s;
+  animation-delay: -3s;
+}
+
+@keyframes blob-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.08);
+  }
+  66% {
+    transform: translate(-20px, 25px) scale(0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-blob {
+    animation: none;
+  }
+}

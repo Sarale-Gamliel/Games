@@ -12,6 +12,12 @@
   --color-xo-soft: #eef0fd;
   --color-hangman: #10b981;
   --color-hangman-soft: #e9fbf4;
+  --color-memory: #f59e0b;
+  --color-memory-soft: #fff4e0;
+  --color-connect4: #0284c7;
+  --color-connect4-soft: #e4f5fd;
+  --color-2048: #d946ef;
+  --color-2048-soft: #fbeafd;
 
   --color-danger: #e11d48;
   --color-success: #16a34a;
@@ -34,7 +40,7 @@
 html,
 body,
 #root {
-  height: 100%;
+  min-height: 100%;
 }
 
 html {
@@ -44,6 +50,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: hidden;
   color: var(--color-text);
   background: linear-gradient(
     135deg,
@@ -75,6 +82,8 @@ button:disabled {
 }
 
 .app-shell {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -95,17 +104,28 @@ button:disabled {
 
 .top-nav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  row-gap: 8px;
   padding: 10px 20px;
   color: #fff;
+}
+
+.top-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  justify-content: flex-end;
 }
 
 .top-nav a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
+  font-size: 14px;
   opacity: 0.9;
+  white-space: nowrap;
 }
 
 .top-nav a:hover {

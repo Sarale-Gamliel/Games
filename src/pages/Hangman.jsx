@@ -1,15 +1,19 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { pickRandomWord } from '../data/hangmanWords.js'
 import { toBaseLetter } from '../utils/hebrewLetters.js'
 import HangmanFigure from '../components/HangmanFigure.jsx'
 import HebrewKeyboard from '../components/HebrewKeyboard.jsx'
+import Confetti from '../components/Confetti.jsx'
 import './Hangman.css'
 
 const MAX_WRONG_GUESSES = 6
+const SHAKE_DURATION_MS = 400
 
 function Hangman() {
   const [{ word, category }, setRound] = useState(pickRandomWord)
   const [guessedLetters, setGuessedLetters] = useState([])
+  const [shake, setShake] = useState(false)
+  const previousWrongCount = useRef(0)
 
   const wordLetters = word.split('')
   const incorrectLetters = guessedLetters.filter(
@@ -18,6 +22,16 @@ function Hangman() {
   const isWinner = wordLetters.every((letter) => guessedLetters.includes(toBaseLetter(letter)))
   const isLoser = incorrectLetters.length >= MAX_WRONG_GUESSES
   const gameOver = isWinner || isLoser
+
+  useEffect(() => {
+    if (incorrectLetters.length > previousWrongCount.current) {
+      setShake(true)
+      const timer = setTimeout(() => setShake(false), SHAKE_DURATION_MS)
+      previousWrongCount.current = incorrectLetters.length
+      return () => clearTimeout(timer)
+    }
+    previousWrongCount.current = incorrectLetters.length
+  }, [incorrectLetters.length])
 
   const handleGuess = useCallback(
     (letter) => {
@@ -30,6 +44,7 @@ function Hangman() {
   function handleReset() {
     setRound(pickRandomWord())
     setGuessedLetters([])
+    previousWrongCount.current = 0
   }
 
   let statusText = `נותרו ${MAX_WRONG_GUESSES - incorrectLetters.length} ניחושים`
@@ -49,7 +64,17 @@ function Hangman() {
         <p className="hangman-category">קטגוריה: {category}</p>
       </div>
 
-      <div className="hangman-board">
+      <div className={`hangman-board ${shake ? 'shake' : ''}`}>
+        <Confetti active={isWinner} />
+
+        <div className="hangman-lives" aria-label={`${MAX_WRONG_GUESSES - incorrectLetters.length} ניסיונות נותרו`}>
+          {Array.from({ length: MAX_WRONG_GUESSES }, (_, i) => (
+            <span key={i} className={i < incorrectLetters.length ? 'lost' : ''}>
+              ❤️
+            </span>
+          ))}
+        </div>
+
         <HangmanFigure wrongGuesses={incorrectLetters.length} />
 
         <div className="hangman-word">

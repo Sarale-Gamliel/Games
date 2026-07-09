@@ -1,0 +1,148 @@
+.c4-page {
+  color: #fff;
+  width: 100%;
+  max-width: 520px;
+}
+
+.c4-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.c4-header h1 {
+  font-size: clamp(24px, 4.5vh, 32px);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.c4-status {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  min-height: 22px;
+}
+
+.c4-mode-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.c4-mode-toggle button {
+  border: none;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.c4-mode-toggle button:hover {
+  transform: translateY(-1px);
+}
+
+.c4-mode-toggle button.active {
+  background: #fff;
+  color: var(--color-connect4);
+}
+
+.c4-scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.c4-score {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 6px 14px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.c4-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  background: var(--color-connect4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 8px;
+  width: min(94vw, 460px);
+  animation: pop-in 0.4s ease both;
+}
+
+.c4-column {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+  background: none;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s ease;
+}
+
+.c4-column:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.c4-cell {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.c4-cell.red {
+  background: #ef4444;
+  animation: drop-in 0.3s ease;
+}
+
+.c4-cell.yellow {
+  background: #eab308;
+  animation: drop-in 0.3s ease;
+}
+
+.c4-cell.winning {
+  animation: celebrate 0.6s ease infinite;
+}
+
+@keyframes drop-in {
+  from {
+    transform: translateY(-140%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.c4-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.c4-reset {
+  background: #fff;
+  color: var(--color-connect4);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 26px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: var(--shadow-pop);
+  transition: transform 0.15s ease;
+}
+
+.c4-reset:hover {
+  transform: translateY(-2px);
+}

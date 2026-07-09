@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { getWinner, isDraw } from '../utils/ticTacToeLogic.js'
 import { getComputerMove } from '../utils/ticTacToeAI.js'
+import Confetti from '../components/Confetti.jsx'
 import './TicTacToe.css'
 
 const EMPTY_BOARD = Array(9).fill(null)
@@ -92,6 +93,7 @@ function TicTacToe() {
       </div>
 
       <div className="xo-board">
+        <Confetti active={Boolean(result)} />
         {board.map((cell, index) => (
           <button
             key={index}

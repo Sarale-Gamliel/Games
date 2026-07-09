@@ -1,0 +1,42 @@
+export const GAMES = [
+  {
+    id: 'hangman',
+    path: '/hangman',
+    icon: '🕵️‍♀️🔤',
+    title: 'איש תלוי',
+    description: 'נחשו את המילה אות אחר אות לפני שנגמר לכם המזל',
+    color: 'var(--color-hangman)',
+  },
+  {
+    id: 'tic-tac-toe',
+    path: '/tic-tac-toe',
+    icon: '❌⭕',
+    title: 'איקס עיגול',
+    description: 'קלאסיקה משפחתית - שני שחקנים, לוח אחד, ניצחון אחד',
+    color: 'var(--color-xo)',
+  },
+  {
+    id: 'memory',
+    path: '/memory',
+    icon: '🧠🃏',
+    title: 'זיכרון',
+    description: 'הפכו קלפים ומצאו את כל הזוגות בכמה שפחות ניסיונות',
+    color: 'var(--color-memory)',
+  },
+  {
+    id: 'connect-four',
+    path: '/connect-four',
+    icon: '🔴🟡',
+    title: 'ארבע בשורה',
+    description: 'הפילו חוליות לעמודה והיו הראשונים להשלים רצף של ארבע',
+    color: 'var(--color-connect4)',
+  },
+  {
+    id: '2048',
+    path: '/2048',
+    icon: '🔢',
+    title: '2048',
+    description: 'החליקו אריחים ושלבו מספרים זהים עד שתגיעו ל-2048',
+    color: 'var(--color-2048)',
+  },
+]

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { GAMES } from '../data/games.js'
 import './Home.css'
 
 const FEATURES = [
@@ -29,19 +30,19 @@ function Home() {
       </section>
 
       <div className="game-grid" id="games">
-        <Link to="/tic-tac-toe" className="game-card xo">
-          <span className="icon">❌⭕</span>
-          <h2>איקס עיגול</h2>
-          <p>קלאסיקה משפחתית - שני שחקנים, לוח אחד, ניצחון אחד</p>
-          <span className="play-badge">שחקו עכשיו</span>
-        </Link>
-
-        <Link to="/hangman" className="game-card hangman">
-          <span className="icon">🕵️‍♀️🔤</span>
-          <h2>איש תלוי</h2>
-          <p>נחשו את המילה אות אחר אות לפני שנגמר לכם המזל</p>
-          <span className="play-badge">שחקו עכשיו</span>
-        </Link>
+        {GAMES.map((game) => (
+          <Link
+            key={game.id}
+            to={game.path}
+            className="game-card"
+            style={{ '--card-accent': game.color }}
+          >
+            <span className="icon">{game.icon}</span>
+            <h2>{game.title}</h2>
+            <p>{game.description}</p>
+            <span className="play-badge">שחקו עכשיו</span>
+          </Link>
+        ))}
       </div>
     </main>
   )

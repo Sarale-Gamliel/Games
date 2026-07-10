@@ -9,6 +9,10 @@ import Game2048 from './pages/Game2048.jsx'
 import RockPaperScissors from './pages/RockPaperScissors.jsx'
 import Simon from './pages/Simon.jsx'
 import Snake from './pages/Snake.jsx'
+import Trivia from './pages/Trivia.jsx'
+import Wordle from './pages/Wordle.jsx'
+import Minesweeper from './pages/Minesweeper.jsx'
+import FlappyBird from './pages/FlappyBird.jsx'
 import BackgroundBlobs from './components/BackgroundBlobs.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -39,6 +43,10 @@ function App() {
           <Route path="/rock-paper-scissors" element={<RockPaperScissors />} />
           <Route path="/simon" element={<Simon />} />
           <Route path="/snake" element={<Snake />} />
+          <Route path="/trivia" element={<Trivia />} />
+          <Route path="/wordle" element={<Wordle />} />
+          <Route path="/minesweeper" element={<Minesweeper />} />
+          <Route path="/flappy-bird" element={<FlappyBird />} />
         </Routes>
         <Footer />
       </div>

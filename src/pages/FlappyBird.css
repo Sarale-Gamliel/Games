@@ -1,0 +1,83 @@
+.flappy-page {
+  color: #fff;
+  width: 100%;
+  max-width: 380px;
+  user-select: none;
+}
+
+.flappy-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.flappy-header h1 {
+  font-size: clamp(22px, 4.5vh, 30px);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.flappy-status {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 18px;
+}
+
+.flappy-scoreboard {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.flappy-score {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.flappy-board {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 8px;
+  animation: pop-in 0.4s ease both;
+  touch-action: none;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.flappy-canvas {
+  display: block;
+  width: min(80vw, 320px);
+  height: min(120vw, 480px);
+  border-radius: var(--radius-md);
+}
+
+.flappy-overlay {
+  position: absolute;
+  inset: 8px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.94);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.flappy-overlay button {
+  background: var(--color-flappy);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 15px;
+}

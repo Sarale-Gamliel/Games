@@ -24,6 +24,14 @@
   --color-simon-soft: #e8fbef;
   --color-snake: #65a30d;
   --color-snake-soft: #eff9de;
+  --color-trivia: #7c3aed;
+  --color-trivia-soft: #f1e9fe;
+  --color-wordle: #16a34a;
+  --color-wordle-soft: #e8f8ee;
+  --color-minesweeper: #64748b;
+  --color-minesweeper-soft: #eef1f4;
+  --color-flappy: #0ea5e9;
+  --color-flappy-soft: #e3f4fc;
 
   --color-danger: #e11d48;
   --color-success: #16a34a;

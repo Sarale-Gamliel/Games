@@ -1,0 +1,120 @@
+.mine-page {
+  color: #fff;
+  width: 100%;
+  max-width: 460px;
+  user-select: none;
+}
+
+.mine-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.mine-header h1 {
+  font-size: clamp(22px, 4.5vh, 30px);
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.mine-status {
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 20px;
+}
+
+.mine-scoreboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.mine-score {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.mine-mode-toggle {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 7px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.mine-mode-toggle.active {
+  background: #fff;
+  color: var(--color-minesweeper);
+}
+
+.mine-board {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: fit-content;
+  margin: 0 auto;
+  animation: pop-in 0.4s ease both;
+}
+
+.mine-row {
+  display: flex;
+  gap: 2px;
+}
+
+.mine-cell {
+  width: min(9vw, 32px);
+  height: min(9vw, 32px);
+  border: none;
+  border-radius: 4px;
+  background: var(--color-minesweeper-soft);
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.1s ease;
+}
+
+.mine-cell:not(:disabled):not(.revealed):hover {
+  background: #dde2e8;
+}
+
+.mine-cell.revealed {
+  background: #f8fafc;
+}
+
+.mine-cell.mine {
+  background: var(--color-danger);
+}
+
+.mine-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.mine-reset {
+  background: #fff;
+  color: var(--color-minesweeper);
+  border: none;
+  border-radius: 999px;
+  padding: 10px 26px;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: var(--shadow-pop);
+  transition: transform 0.15s ease;
+}
+
+.mine-reset:hover {
+  transform: translateY(-2px);
+}

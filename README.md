@@ -6,7 +6,7 @@ Live demo: https://games-navy-delta.vercel.app
 
 ## Games included
 
-Tic-Tac-Toe, Hangman, Rock-Paper-Scissors, Simon, Snake, Memory, Connect Four, and 2048.
+Tic-Tac-Toe, Hangman, Memory, Connect Four, 2048, Rock-Paper-Scissors, Simon, Snake, Trivia, Wordle, Minesweeper, and Flappy Bird.
 
 ## Tech stack
 

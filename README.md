@@ -1,16 +1,25 @@
-# React + Vite
+# Games Arcade
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A unified mini-games hub built with React and Vite: one clean, responsive app that brings together classic browser games behind a single home screen, instead of scattered separate repos.
 
-Currently, two official plugins are available:
+Live demo: https://games-navy-delta.vercel.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Games included
 
-## React Compiler
+Tic-Tac-Toe, Hangman, Rock-Paper-Scissors, Simon, Snake, Memory, Connect Four, and 2048.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the Oxlint configuration
+React 19, React Router, Vite, and component-based CSS with a shared design system across games.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Getting started
+
+Install dependencies with npm install, then run npm run dev to start the local dev server. Build for production with npm run build.
+
+## Roadmap
+
+Planned upgrades include player profiles and stats, leaderboards, achievements and a daily challenge, plus sound effects and animations.
+
+## Why this project exists
+
+Instead of keeping every browser game as its own standalone repo and deployment, this project consolidates them into a single arcade-style site with shared navigation, styling, and infrastructure, making it easier to add new games and to showcase them as one cohesive product.
